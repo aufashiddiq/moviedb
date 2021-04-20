@@ -24,35 +24,36 @@
                             <constraint firstAttribute="height" constant="200" id="S43-mB-zml"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4g-Jy-5o4">
-                        <rect key="frame" x="0.0" y="210" width="428" height="21"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw3-OR-ftt">
+                        <rect key="frame" x="0.0" y="210" width="428" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="lvC-BX-E4m"/>
+                            <constraint firstAttribute="height" constant="25" id="MQ7-zP-WhD"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="didTapAction" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dqI-qU-1x2"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="y4g-Jy-5o4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6Vp-cc-3aw"/>
                     <constraint firstAttribute="trailing" secondItem="Mv8-Cc-laX" secondAttribute="trailing" id="9eX-fJ-uON"/>
                     <constraint firstItem="Mv8-Cc-laX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DyV-ij-cW0"/>
-                    <constraint firstAttribute="trailing" secondItem="y4g-Jy-5o4" secondAttribute="trailing" id="MU4-jh-e41"/>
                     <constraint firstItem="Mv8-Cc-laX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Odg-GC-o0K"/>
+                    <constraint firstAttribute="trailing" secondItem="Kw3-OR-ftt" secondAttribute="trailing" id="PLd-1L-foq"/>
                     <constraint firstItem="Mv8-Cc-laX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Q6U-Gr-JkH"/>
+                    <constraint firstItem="Kw3-OR-ftt" firstAttribute="top" secondItem="Mv8-Cc-laX" secondAttribute="bottom" constant="10" id="Tij-43-tEm"/>
                     <constraint firstItem="Mv8-Cc-laX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="V7j-an-jjv"/>
-                    <constraint firstItem="y4g-Jy-5o4" firstAttribute="top" secondItem="Mv8-Cc-laX" secondAttribute="bottom" constant="10" id="Y3F-Zt-EfD"/>
+                    <constraint firstItem="Kw3-OR-ftt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WaR-pu-shk"/>
+                    <constraint firstAttribute="bottom" secondItem="Kw3-OR-ftt" secondAttribute="bottom" constant="16" id="gLE-OR-II1"/>
                     <constraint firstAttribute="trailing" secondItem="Mv8-Cc-laX" secondAttribute="trailing" id="lcR-ZO-YcU"/>
                     <constraint firstItem="Mv8-Cc-laX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rtP-Yl-T11"/>
                     <constraint firstItem="Mv8-Cc-laX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="twL-1s-ST2"/>
-                    <constraint firstAttribute="bottom" secondItem="y4g-Jy-5o4" secondAttribute="bottom" constant="10" id="vi0-sH-7zZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="movieImage" destination="Mv8-Cc-laX" id="fBN-FY-23c"/>
-                <outlet property="movieName" destination="y4g-Jy-5o4" id="Ug3-pY-ySL"/>
+                <outlet property="movieName" destination="Kw3-OR-ftt" id="qv5-zV-QFa"/>
             </connections>
             <point key="canvasLocation" x="59.420289855072468" y="99.441964285714278"/>
         </tableViewCell>

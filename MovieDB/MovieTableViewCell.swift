@@ -7,19 +7,35 @@
 
 import UIKit
 
+protocol MovieTableViewCellDelegate: AnyObject {
+    func didTapAction(with title: String)
+}
+
 class MovieTableViewCell: UITableViewCell {
+    
+    weak var delegate: MovieTableViewCellDelegate?
+    static let identifier = "MovieTableViewCell"
+    
+    static func nib() -> UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+    
+    @IBAction func didTapAction() {
+        delegate?.didTapAction(with: title)
+    }
 
     @IBOutlet var movieImage: UIImageView!
-    @IBOutlet var movieName: UILabel!
+    @IBOutlet var movieName: UIButton!
     
+    private var title: String = ""
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    func configure(with title: String) {
+        self.title = title
+        movieName.setTitle(title, for: .normal)
+    }
+
 }

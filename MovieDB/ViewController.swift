@@ -7,16 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieTableViewCellDelegate {
 
     @IBOutlet var tableView: UITableView!
-    let data = ["first", "second", "third", "fourth", "fifth"]
+    let data = ["First", "Second", "Third", "Fourth", "Fifth"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nib = UINib(nibName: "MovieTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "MovieTableViewCell")
+        tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: MovieTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -27,9 +26,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell
-        cell.movieName?.text = data[indexPath.row]
+        cell.configure(with: data[indexPath.row])
+        cell.delegate = self
         return cell
+    }
+    
+    func onClickMovie(title: String) {
+        navigationController?.pushViewController(DetailMovieViewController(), animated: true)
+    }
+    
+    func didTapAction(with title: String) {
+        onClickMovie(title: title)
     }
     
 }
 
+class DetailMovieViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Detail Movie"
+        view.backgroundColor = .white
+    }
+}
