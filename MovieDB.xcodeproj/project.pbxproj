@@ -15,6 +15,8 @@
 		E12CF5BC261F097B00E62181 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12CF5BA261F097B00E62181 /* LaunchScreen.storyboard */; };
 		E12CF5C7261F097B00E62181 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12CF5C6261F097B00E62181 /* MovieDBTests.swift */; };
 		E12CF5D2261F097B00E62181 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12CF5D1261F097B00E62181 /* MovieDBUITests.swift */; };
+		E15F2022262E6B7000724928 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F2020262E6B7000724928 /* MovieTableViewCell.swift */; };
+		E15F2023262E6B7000724928 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15F2021262E6B7000724928 /* MovieTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		E12CF5CD261F097B00E62181 /* MovieDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12CF5D1261F097B00E62181 /* MovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITests.swift; sourceTree = "<group>"; };
 		E12CF5D3261F097B00E62181 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E15F2020262E6B7000724928 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		E15F2021262E6B7000724928 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				E12CF5B8261F097B00E62181 /* Assets.xcassets */,
 				E12CF5BA261F097B00E62181 /* LaunchScreen.storyboard */,
 				E12CF5BD261F097B00E62181 /* Info.plist */,
+				E15F2020262E6B7000724928 /* MovieTableViewCell.swift */,
+				E15F2021262E6B7000724928 /* MovieTableViewCell.xib */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 			files = (
 				E12CF5BC261F097B00E62181 /* LaunchScreen.storyboard in Resources */,
 				E12CF5B9261F097B00E62181 /* Assets.xcassets in Resources */,
+				E15F2023262E6B7000724928 /* MovieTableViewCell.xib in Resources */,
 				E12CF5B7261F097900E62181 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +267,7 @@
 			files = (
 				E12CF5B4261F097900E62181 /* ViewController.swift in Sources */,
 				E12CF5B0261F097900E62181 /* AppDelegate.swift in Sources */,
+				E15F2022262E6B7000724928 /* MovieTableViewCell.swift in Sources */,
 				E12CF5B2261F097900E62181 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
