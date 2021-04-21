@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E103DB17262FCD5100DA71B2 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E103DB16262FCD5100DA71B2 /* DetailMovieViewController.swift */; };
 		E12CF5B0261F097900E62181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12CF5AF261F097900E62181 /* AppDelegate.swift */; };
 		E12CF5B2261F097900E62181 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12CF5B1261F097900E62181 /* SceneDelegate.swift */; };
 		E12CF5B4261F097900E62181 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12CF5B3261F097900E62181 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E103DB16262FCD5100DA71B2 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		E12CF5AC261F097900E62181 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12CF5AF261F097900E62181 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12CF5B1261F097900E62181 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				E12CF5BD261F097B00E62181 /* Info.plist */,
 				E15F2020262E6B7000724928 /* MovieTableViewCell.swift */,
 				E15F2021262E6B7000724928 /* MovieTableViewCell.xib */,
+				E103DB16262FCD5100DA71B2 /* DetailMovieViewController.swift */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				E12CF5B4261F097900E62181 /* ViewController.swift in Sources */,
 				E12CF5B0261F097900E62181 /* AppDelegate.swift in Sources */,
 				E15F2022262E6B7000724928 /* MovieTableViewCell.swift in Sources */,
+				E103DB17262FCD5100DA71B2 /* DetailMovieViewController.swift in Sources */,
 				E12CF5B2261F097900E62181 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

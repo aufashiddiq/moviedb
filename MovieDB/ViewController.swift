@@ -32,20 +32,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func onClickMovie(title: String) {
-        navigationController?.pushViewController(DetailMovieViewController(), animated: true)
+        let vc = storyboard?.instantiateViewController(identifier: "detailMovie") as! DetailMovieViewController
+        vc.movieTitle = title
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func didTapAction(with title: String) {
         onClickMovie(title: title)
     }
     
-}
-
-class DetailMovieViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Detail Movie"
-        view.backgroundColor = .white
-    }
 }
