@@ -19,13 +19,10 @@ class MovieTableViewCell: UITableViewCell {
     static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
-    
-    @IBAction func didTapAction() {
-        delegate?.didTapAction(with: title)
-    }
 
     @IBOutlet var movieImage: UIImageView!
-    @IBOutlet var movieName: UIButton!
+    @IBOutlet var movieName: UILabel!
+    @IBOutlet var movieDesc: UILabel!
     
     private var title: String = ""
 
@@ -35,7 +32,7 @@ class MovieTableViewCell: UITableViewCell {
     
     func configure(with title: String) {
         self.title = title
-        movieName.setTitle(title, for: .normal)
+        movieName.text = title
     }
 
 }

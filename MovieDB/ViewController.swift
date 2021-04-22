@@ -34,6 +34,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onClickMovie(title: data[indexPath.row])
+    }
+    
     func onClickMovie(title: String) {
         let vc = storyboard?.instantiateViewController(identifier: "detailMovie") as! DetailMovieViewController
         vc.movieTitle = title
