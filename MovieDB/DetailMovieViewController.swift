@@ -9,16 +9,28 @@ import UIKit
 
 class DetailMovieViewController: UIViewController {
 
-    var movieTitle: String = ""
-    var movieImageUrl: String = ""
+    var movie: Movie?
     @IBOutlet var movieImage: UIImageView!
     @IBOutlet var actorCollection: UICollectionView!
+    @IBOutlet var movieTitle: UILabel!
+    @IBOutlet var movieReleaseDate: UILabel!
+    @IBOutlet var movieOverview: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = movieTitle + " Movie"
-        movieImage.sd_setImage(with: URL(string: movieImageUrl), completed: nil)
-        view.backgroundColor = .white
+        self.initView()
+    }
+
+}
+
+extension DetailMovieViewController {
+    
+    func initView() {
+        title = "Movie Details"
+        movieImage.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w300/\(movie?.posterPath ?? "")"), completed: nil)
+        movieTitle.text = movie?.title ?? "-"
+        movieReleaseDate.text = "Released Date: \(movie?.releaseDate ?? "-")"
+        movieOverview.text = movie?.overview ?? "-"
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 120, height: 120)
@@ -28,7 +40,6 @@ class DetailMovieViewController: UIViewController {
         actorCollection.dataSource = self
         actorCollection.delegate = self
     }
-
 }
 
 extension DetailMovieViewController: UICollectionViewDelegate {
@@ -42,12 +53,12 @@ extension DetailMovieViewController: UICollectionViewDelegate {
 extension DetailMovieViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActorCollectionViewCell.identifier, for: indexPath) as! ActorCollectionViewCell
-        cell.configure(with: movieImageUrl)
+        cell.configure(with: "https://image.tmdb.org/t/p/w300/\(movie?.posterPath ?? "")")
         return cell
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MovieTableViewCellDelegate: AnyObject {
-    func didTapAction(with title: String)
+    func didTapAction(with movie: Movie)
 }
 
 class MovieTableViewCell: UITableViewCell {
@@ -30,9 +30,10 @@ class MovieTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configure(with title: String) {
-        self.title = title
-        movieName.text = title
+    func configure(with movie: Movie) {
+        movieName.text = movie.title ?? "-"
+        movieDesc.text = "Released Date: \(movie.releaseDate ?? "-")"
+        movieImage.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w300/\(movie.backdropPath!)"), completed: nil)
     }
 
 }

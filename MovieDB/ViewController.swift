@@ -11,8 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieTableViewCellDelegate {
 
     @IBOutlet var tableView: UITableView!
-    let data = ["First", "Second", "Third", "Fourth", "Fifth"]
-    let imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg"
+    private var movies: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,33 +19,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: MovieTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        NetworkManager().fetchMovies { (movies) in
+            self.movies = movies
+            DispatchQueue.main.async{
+                self.tableView.reloadData()
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return movies?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell
-        cell.configure(with: data[indexPath.row])
-        cell.movieImage.sd_setImage(with: URL(string: imageUrl), completed: nil)
+        if let movie = movies?[indexPath.row] {
+            cell.configure(with: movie)
+        }
         cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        onClickMovie(title: data[indexPath.row])
+        if let movie = movies?[indexPath.row] {
+            onClickMovie(movie: movie)
+        }
     }
     
-    func onClickMovie(title: String) {
+    func onClickMovie(movie: Movie) {
         let vc = storyboard?.instantiateViewController(identifier: "detailMovie") as! DetailMovieViewController
-        vc.movieTitle = title
-        vc.movieImageUrl = imageUrl
+        vc.movie = movie
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func didTapAction(with title: String) {
-        onClickMovie(title: title)
+    func didTapAction(with movie: Movie) {
+        onClickMovie(movie: movie)
     }
     
 }

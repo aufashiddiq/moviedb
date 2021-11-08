@@ -17,5 +17,6 @@ target 'MovieDB' do
   end
 
   pod 'SDWebImage'
+  pod 'ReactiveCoordinator', '4.0.0'
 
 end

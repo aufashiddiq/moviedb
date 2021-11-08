@@ -1,18 +1,26 @@
 PODS:
+  - ReactiveCoordinator (4.0.0):
+    - RxSwift
+  - RxSwift (6.1.0)
   - SDWebImage (5.11.0):
     - SDWebImage/Core (= 5.11.0)
   - SDWebImage/Core (5.11.0)
 
 DEPENDENCIES:
+  - ReactiveCoordinator (= 4.0.0)
   - SDWebImage
 
 SPEC REPOS:
   trunk:
+    - ReactiveCoordinator
+    - RxSwift
     - SDWebImage
 
 SPEC CHECKSUMS:
+  ReactiveCoordinator: 411fce7da599bbbb56d5ad9f3abe1e532e58a64f
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
 
-PODFILE CHECKSUM: 3e69d3b6d1dcdfa6311385e363dec1fc54d99783
+PODFILE CHECKSUM: 7f0e18530a54d6e808c9b529f230558c75e938d4
 
 COCOAPODS: 1.10.1
