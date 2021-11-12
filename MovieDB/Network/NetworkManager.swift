@@ -36,7 +36,7 @@ final class NetworkManager {
         task.resume()
     }
     
-    private func fetchDetailMovie(withID movieId:Int, completionHandler: @escaping (MovieDetail) -> Void) {
+    func fetchDetailMovie(withID movieId:Int, completionHandler: @escaping (MovieDetail) -> Void) {
         let url = URL(string: domainUrlString + "movie/\(movieId)\(apiKey)")!
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -59,7 +59,7 @@ final class NetworkManager {
         task.resume()
     }
     
-    private func fetchMovieCredit(withID movieId:Int, completionHandler: @escaping (MovieCredit) -> Void) {
+    func fetchMovieCredit(withID movieId:Int, completionHandler: @escaping (MovieCredit) -> Void) {
         let url = URL(string: domainUrlString + "movie/\(movieId)/credits\(apiKey)")!
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in

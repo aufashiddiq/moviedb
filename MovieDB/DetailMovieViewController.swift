@@ -7,65 +7,48 @@
 
 import UIKit
 
-class DetailMovieViewController: UIViewController {
+class DetailMovieViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var movie: Movie?
-    @IBOutlet var movieImage: UIImageView!
-    @IBOutlet var actorCollection: UICollectionView!
-    @IBOutlet var movieTitle: UILabel!
-    @IBOutlet var movieReleaseDate: UILabel!
-    @IBOutlet var movieOverview: UILabel!
-    
+    @IBOutlet var detailTableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initView()
-    }
-
-}
-
-extension DetailMovieViewController {
-    
-    func initView() {
-        title = "Movie Details"
-        movieImage.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w300/\(movie?.posterPath ?? "")"), completed: nil)
-        movieTitle.text = movie?.title ?? "-"
-        movieReleaseDate.text = "Released Date: \(movie?.releaseDate ?? "-")"
-        movieOverview.text = movie?.overview ?? "-"
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 120)
-        actorCollection.collectionViewLayout = layout
-        
-        actorCollection.register(ActorCollectionViewCell.nib(), forCellWithReuseIdentifier: ActorCollectionViewCell.identifier)
-        actorCollection.dataSource = self
-        actorCollection.delegate = self
-    }
-}
-
-extension DetailMovieViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+        detailTableView.register(MovieSummaryTableViewCell.nib(), forCellReuseIdentifier: MovieSummaryTableViewCell.identifier)
+        detailTableView.register(ActorTableViewCell.nib(), forCellReuseIdentifier: ActorTableViewCell.identifier)
+        detailTableView.delegate = self
+        detailTableView.dataSource = self
+        detailTableView.separatorStyle = .none
+        title = "Movie Detail"
     }
     
-}
-
-extension DetailMovieViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActorCollectionViewCell.identifier, for: indexPath) as! ActorCollectionViewCell
-        cell.configure(with: "https://image.tmdb.org/t/p/w300/\(movie?.posterPath ?? "")")
-        return cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
-}
-
-extension DetailMovieViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.section == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieSummaryTableViewCell.identifier, for: indexPath) as! MovieSummaryTableViewCell
+            cell.movie = movie
+            cell.initView()
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ActorTableViewCell.identifier, for: indexPath) as! ActorTableViewCell
+            if let movie = self.movie {
+                cell.configure(with: movie)
+            }
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.section == 1) {
+            return 250.0
+        }
+        return tableView.estimatedRowHeight
     }
 }
